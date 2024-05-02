@@ -1,0 +1,31 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %}Detalle del Producto{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        Detalle del Producto
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Producto: {{ producto.nombre_de_producto }}</p>
+                        <p class="card-text">Categoria: {{ producto.categoria }}</p>
+                        <p class="card-text">Precio: {{ producto.precio  }}</p>
+                        <p class="card-text">Código: {{ producto.codigo }}</p>
+                        <p class="card-text">Descripción: {{ producto.descripcion }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'product-list' %}" class="btn btn-success">Volver a todos los productos</a>
+                        <a href="{% url 'product-update' producto.id %}" class="btn btn-primary ">Editar</a>
+                        <a href="{% url 'product-delete' producto.id %}" class="btn btn-danger ">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

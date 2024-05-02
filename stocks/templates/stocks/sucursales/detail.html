@@ -1,0 +1,30 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %}Detalle de la sucursal{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        Detalle de la sucursal
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Tipo de sucursal: {{ sucursal.tipo_de_sucursal }}</p>
+                        <p class="card-text">Tamaño: {{ sucursal.tamaño }} m2</p>
+                        <p class="card-text">Localidad: {{ sucursal.localidad }}</p>
+                        <p class="card-text">Cantidad de empleados: {{ sucursal.cantidad_de_empleados }}</p>
+                    </div>
+                </div>
+                <div class="card-footer"></div>
+                    <a href="{% url 'office-list' %}" class="btn btn-success">Volver a todas las Sucursales</a>
+                    <a href="{% url 'office-update' sucursal.id %}" class="btn btn-primary ">Editar</a>
+                    <a href="{% url 'office-delete' sucursal.id %}" class="btn btn-danger ">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

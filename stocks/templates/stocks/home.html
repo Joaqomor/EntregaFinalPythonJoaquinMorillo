@@ -1,0 +1,13 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %} StockApp {% endblock title %}
+
+{% block content %}
+<section>
+    <h2 class="my-5 text-center">Bienvendios a la aplicación creada por Joaquín Morillo para la entrega final del curso de python de coderhouse!</h2>
+</section>
+
+<section>
+    <h4 class="my-5 text-center">Si aún no creó su usuario, haga click aquí <a class="m-2 btn btn-primary" href="{% url 'user-create' %}">Crear Usuario</a></h4>
+</section>
+{% endblock %}

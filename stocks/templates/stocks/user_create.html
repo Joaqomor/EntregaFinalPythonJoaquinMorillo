@@ -1,0 +1,24 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    Crear nuevo usuario
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'user-create' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

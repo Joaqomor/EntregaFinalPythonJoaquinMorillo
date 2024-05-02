@@ -1,0 +1,49 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %} Listado de Sucursales {% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0">Sucursales</h2>
+            <a href="{% url 'office-create' %}" class="btn btn-success">Crear Sucursal</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tipo de sucursal</th>
+                    <th scope="col">Tamaño (m2)</th>
+                    <th scope="col">Localidad</th>
+                    <th scope="col">Cantidad de empleados</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if todas_las_sucursales %}
+                {% for sucursal in todas_las_sucursales %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ sucursal.tipo_de_sucursal }}</td>
+                    <td>{{ sucursal.tamaño }}</td>
+                    <td>{{ sucursal.localidad }}</td>
+                    <td>{{ sucursal.cantidad_de_empleados }}</td>
+                    <td>
+                        <a href="{% url 'office-update' sucursal.id %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'office-delete' sucursal.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'office-detail' sucursal.id %}" class="btn btn-success btn-sm">Ver detalle</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="7">No hay sucursales disponibles.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

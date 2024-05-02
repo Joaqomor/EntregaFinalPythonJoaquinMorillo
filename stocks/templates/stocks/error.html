@@ -1,0 +1,13 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %} Error {% endblock title %}
+
+{% block content %}
+<section>
+    <h2 class="my-5 text-center">Error</h2>
+</section>
+
+<section>
+    <h3 class="my-5 text-center">Debes iniciar sesión para acceder a esta página. <a class="m-2 btn btn-primary" href="{% url 'login' %}">Login</a></h3>
+</section>
+{% endblock %}

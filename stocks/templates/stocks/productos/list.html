@@ -1,0 +1,51 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %} Listado de Productos {% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0">Productos</h2>
+            <a href="{% url 'product-create' %}" class="btn btn-success">Crear Producto</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre de producto</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if todos_los_productos %}
+                {% for producto in todos_los_productos %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ producto.nombre_de_producto }}</td>
+                    <td>{{ producto.categoria }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.codigo }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>
+                        <a href="{% url 'product-update' producto.id %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'product-delete' producto.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'product-detail' producto.id %}" class="btn btn-success btn-sm">Ver detalle</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="7">No hay productos disponibles.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

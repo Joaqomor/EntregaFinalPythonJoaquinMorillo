@@ -1,0 +1,30 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %}Detalle del cliente{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        Detalle del cliente
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Nombre: {{ cliente.nombre }}</p>
+                        <p class="card-text">Telefono: {{ cliente.telefono }}</p>
+                        <p class="card-text">Email: {{ cliente.email }}</p>
+                        <p class="card-text">Localidad: {{ cliente.localidad }}</p>
+                    </div>
+                </div>
+                <div class="card-footer"></div>
+                    <a href="{% url 'client-list' %}" class="btn btn-success">Volver a todos los Clientes</a>
+                    <a href="{% url 'client-update' cliente.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'client-delete' cliente.id %}" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'stocks/base.html' %}
+
+{% block title %}Modificar Cliente{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h2 class="mb-4">Modificar datos del Cliente</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        Datos del cliente
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{% url 'client-update' OBJETO.id %}">  
+                            {% csrf_token %}  <!-- CSRF Token added here -->
+                            {{ form_update.as_p }}  
+                            <button type="buscar" class="btn btn-primary">Actualizar</button>
+                            <a href="{% url 'client-list' %}" class="btn btn-danger">Cancelar</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
